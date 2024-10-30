@@ -11,7 +11,7 @@ function App() {
   const [viagemIniciada, setViagemIniciada] = useState(false);
 
   useEffect(() => {
-    const dataPraia = new Date('2024-11-15T00:00:00'); // Ajuste a data e a hora exata da viagem
+    const dataPraia = new Date('2024-11-15T00:00:00'); 
 
     const calcularTempoRestante = () => {
       const agora = new Date();
@@ -37,7 +37,7 @@ function App() {
     };
 
     calcularTempoRestante();
-    const timer = setInterval(calcularTempoRestante, 1000); // Atualiza a cada segundo
+    const timer = setInterval(calcularTempoRestante, 1000); 
 
     return () => clearInterval(timer);
   }, []);
@@ -46,7 +46,7 @@ function App() {
     <div className="App">
       <h1 className="titulo">
         {viagemIniciada
-          ? `VIAJAMOS PARA A PRAIA HÁ ${tempoRestante.dias} DIAS, ${tempoRestante.horas} HORAS, ${tempoRestante.minutos} MINUTOS E ${tempoRestante.segundos} SEGUNDOS`
+          ? `VIAJAMOS PARA A PRAIA HÁ ${tempoRestante.dias} DIAS 🏖️`
           : `FALTAM ${tempoRestante.dias} DIAS, ${tempoRestante.horas} HORAS, ${tempoRestante.minutos} MINUTOS E ${tempoRestante.segundos} SEGUNDOS PARA A PRAIA`}
       </h1>
     </div>
