@@ -1,0 +1,27 @@
+body, html, #root, .App {
+  height: 100%;
+  margin: 0;
+}
+
+.App {
+  background-image: url('./img/praia.png');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.titulo {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  color: #FFFFFF; /* Cor branca para destacar mais */
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7), 6px 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+.contador {
+  font-size: 2rem;
+  font-weight: bold;
+}
