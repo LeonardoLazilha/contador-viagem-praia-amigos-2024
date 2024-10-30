@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/contador-viagem-praia-amigos-2024/static/css/main.feccde09.css",
-    "main.js": "/contador-viagem-praia-amigos-2024/static/js/main.1b937fa8.js",
+    "main.css": "/contador-viagem-praia-amigos-2024/static/css/main.915f39fd.css",
+    "main.js": "/contador-viagem-praia-amigos-2024/static/js/main.207eba80.js",
     "static/media/praia.png": "/contador-viagem-praia-amigos-2024/static/media/praia.97f67702450f94357962.png",
     "index.html": "/contador-viagem-praia-amigos-2024/index.html",
-    "main.feccde09.css.map": "/contador-viagem-praia-amigos-2024/static/css/main.feccde09.css.map",
-    "main.1b937fa8.js.map": "/contador-viagem-praia-amigos-2024/static/js/main.1b937fa8.js.map"
+    "main.915f39fd.css.map": "/contador-viagem-praia-amigos-2024/static/css/main.915f39fd.css.map",
+    "main.207eba80.js.map": "/contador-viagem-praia-amigos-2024/static/js/main.207eba80.js.map"
   },
   "entrypoints": [
-    "static/css/main.feccde09.css",
-    "static/js/main.1b937fa8.js"
+    "static/css/main.915f39fd.css",
+    "static/js/main.207eba80.js"
   ]
 }
