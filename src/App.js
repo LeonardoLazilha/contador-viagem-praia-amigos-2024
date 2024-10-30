@@ -2,28 +2,42 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
-  const [diasRestantes, setDiasRestantes] = useState(0);
+  const [tempoRestante, setTempoRestante] = useState({
+    dias: 0,
+    horas: 0,
+    minutos: 0,
+    segundos: 0
+  });
   const [viagemIniciada, setViagemIniciada] = useState(false);
 
   useEffect(() => {
-    const dataPraia = new Date('2024-11-15'); 
+    const dataPraia = new Date('2024-11-15T00:00:00'); // Ajuste a data e a hora exata da viagem
 
-    const calcularDiasRestantes = () => {
-      const hoje = new Date();
-      const diffEmMilissegundos = dataPraia.setHours(0, 0, 0, 0) - hoje.setHours(0, 0, 0, 0);
-      const dias = Math.floor(diffEmMilissegundos / (1000 * 60 * 60 * 24));
-    
-      if (dias >= 0) {
-        setDiasRestantes(dias);
+    const calcularTempoRestante = () => {
+      const agora = new Date();
+      const diferencaEmMs = dataPraia - agora;
+
+      if (diferencaEmMs > 0) {
+        const dias = Math.floor(diferencaEmMs / (1000 * 60 * 60 * 24));
+        const horas = Math.floor((diferencaEmMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutos = Math.floor((diferencaEmMs % (1000 * 60 * 60)) / (1000 * 60));
+        const segundos = Math.floor((diferencaEmMs % (1000 * 60)) / 1000);
+
+        setTempoRestante({ dias, horas, minutos, segundos });
         setViagemIniciada(false);
       } else {
-        setDiasRestantes(Math.abs(dias));
+        const dias = Math.floor(Math.abs(diferencaEmMs) / (1000 * 60 * 60 * 24));
+        const horas = Math.floor((Math.abs(diferencaEmMs) % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutos = Math.floor((Math.abs(diferencaEmMs) % (1000 * 60 * 60)) / (1000 * 60));
+        const segundos = Math.floor((Math.abs(diferencaEmMs) % (1000 * 60)) / 1000);
+
+        setTempoRestante({ dias, horas, minutos, segundos });
         setViagemIniciada(true);
       }
     };
 
-    calcularDiasRestantes();
-    const timer = setInterval(calcularDiasRestantes, 1000 * 60 * 60 * 24); 
+    calcularTempoRestante();
+    const timer = setInterval(calcularTempoRestante, 1000); // Atualiza a cada segundo
 
     return () => clearInterval(timer);
   }, []);
@@ -32,8 +46,8 @@ function App() {
     <div className="App">
       <h1 className="titulo">
         {viagemIniciada
-          ? `VIAJAMOS PARA A PRAIA HÁ ${diasRestantes} DIAS`
-          : `FALTAM ${diasRestantes} DIAS PARA PRAIA`}
+          ? `VIAJAMOS PARA A PRAIA HÁ ${tempoRestante.dias} DIAS, ${tempoRestante.horas} HORAS, ${tempoRestante.minutos} MINUTOS E ${tempoRestante.segundos} SEGUNDOS`
+          : `FALTAM ${tempoRestante.dias} DIAS, ${tempoRestante.horas} HORAS, ${tempoRestante.minutos} MINUTOS E ${tempoRestante.segundos} SEGUNDOS PARA A PRAIA`}
       </h1>
     </div>
   );
