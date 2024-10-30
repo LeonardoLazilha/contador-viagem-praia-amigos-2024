@@ -6,7 +6,7 @@ function App() {
   const [viagemIniciada, setViagemIniciada] = useState(false);
 
   useEffect(() => {
-    const dataPraia = new Date('2024-10-15'); 
+    const dataPraia = new Date('2024-11-15'); 
 
     const calcularDiasRestantes = () => {
       const hoje = new Date();
